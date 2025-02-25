@@ -1,6 +1,11 @@
 import React from "react";
 
 const Manager = () => {
+
+    const showPassword = ()=>{
+        
+    }
+
   return (
     <>
       <div className="mycontainer">
@@ -29,13 +34,19 @@ const Manager = () => {
               name=""
               id=""
             />
-            <input
-              placeholder="Enter password"
-              className="rounded-full border border-green-500 py-1 px-4 w-full"
-              type="text"
-              name=""
-              id=""
-            />
+            <div className="relative">
+              <input
+                placeholder="Enter password"
+                className="rounded-full border border-green-500 py-1 px-4 w-full"
+                type="text"
+                name=""
+                id=""
+              />
+              <span className="absolute right-[5px] top-[3px] cursor-pointer" 
+              onClick={showPassword}>
+                <img className="p-1" width={24} src="icons/eye.png" alt="eye" />
+              </span>
+            </div>
           </div>
           <button className="flex justify-center items-center bg-green-400 hover:bg-green-300 rounded-full gap-2 px-8 py-2 w-fit border border-green-900">
             <lord-icon
