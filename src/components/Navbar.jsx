@@ -5,9 +5,9 @@ const Navbar = () => {
     <nav className="bg-slate-800 text-white">
       <div className=" flex justify-between items-center px-4 py-5 h-14 mycontainer">
         <div className="logo font-bold text-white text-2xl">
-          <span className="text-green-500">&lt;</span>
+          <span className="text-emerald-500">&lt;</span>
           <span>Pass</span>
-          <span className="text-green-500">OP/&gt;</span>
+          <span className="text-emerald-500">OP/&gt;</span>
         </div>
         {/* <ul>
           <li className="flex gap-4">
@@ -22,9 +22,10 @@ const Navbar = () => {
             </a>
           </li>
         </ul> */}
-        <button className="text-white bg-green-700 my-5 mx-2 rounded-full flex justify-between items-center">
+        <button className="text-white bg-emerald-600 my-5 mx-2 rounded-full flex justify-between items-center">
           <img
-            className="invert p-1 w-10"
+            className="brightness-0 invert p-1 w-10"
+            // we needed the png white, so we made the png black by making it's brightness 0 and inverted it
             src="/icons/github.png"
             alt="Github"
           />

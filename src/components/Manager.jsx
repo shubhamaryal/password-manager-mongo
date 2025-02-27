@@ -15,6 +15,11 @@ const Manager = () => {
   }, []);
 
   const showPassword = () => {
+    // passwordRef is in input tag of 'password'
+    // ref is the ref passed in the image of eye
+    // both ref are used in different places
+    // we can't use same ref on two tags.
+
     passwordRef.current.type = "text";
     if (ref.current.src.includes("icons/eyecross.png")) {
       ref.current.src = "icons/eye.png";
@@ -41,11 +46,11 @@ const Manager = () => {
     <>
       <div className="mycontainer">
         <h1 className="text-4xl font-bold text-center">
-          <span className="text-green-500">&lt;</span>
+          <span className="text-emerald-500">&lt;</span>
           <span>Pass</span>
-          <span className="text-green-500">OP/&gt;</span>
+          <span className="text-emerald-500">OP/&gt;</span>
         </h1>
-        <p className="text-green-900 text-lg text-center">
+        <p className="text-emerald-900 text-lg text-center">
           Your own Password Manager.
         </p>
 
@@ -54,7 +59,7 @@ const Manager = () => {
             value={form.site}
             onChange={handleChange}
             placeholder="Enter website URl"
-            className="rounded-full border border-green-500 py-1 px-4 w-full"
+            className="rounded-full border border-emerald-500 py-1 px-4 w-full"
             type="text"
             name="site"
             id=""
@@ -64,7 +69,7 @@ const Manager = () => {
               value={form.username}
               onChange={handleChange}
               placeholder="Enter username"
-              className="rounded-full border border-green-500 py-1 px-4 w-full"
+              className="rounded-full border border-emerald-500 py-1 px-4 w-full"
               type="text"
               name="username"
               id=""
@@ -75,7 +80,7 @@ const Manager = () => {
                 value={form.password}
                 onChange={handleChange}
                 placeholder="Enter password"
-                className="rounded-full border border-green-500 py-1 px-4 w-full"
+                className="rounded-full border border-emerald-500 py-1 px-4 w-full"
                 type="password"
                 name="password"
                 id=""
@@ -96,7 +101,7 @@ const Manager = () => {
           </div>
           <button
             onClick={savePassword}
-            className="flex justify-center items-center bg-green-400 hover:bg-green-300 rounded-full gap-2 px-8 py-2 w-fit border border-green-900"
+            className="flex justify-center items-center bg-emerald-400 hover:bg-emerald-300 rounded-full gap-2 px-8 py-2 w-fit border border-emerald-900"
           >
             <lord-icon
               src="https://cdn.lordicon.com/jgnvfzqg.json"
@@ -111,14 +116,14 @@ const Manager = () => {
           {passwordArray.length !== 0 && (
             <table className="table-auto w-full rounded-md overflow-hidden">
               {/* table ma rounded garna yetikai mildaina, overflow hidden use grna prxa */}
-              <thead className="bg-green-800 text-white">
+              <thead className="bg-emerald-800 text-white">
                 <tr>
                   <th className="py-2">Site</th>
                   <th className="py-2">Username</th>
                   <th className="py-2">Password</th>
                 </tr>
               </thead>
-              <tbody className="bg-green-200">
+              <tbody className="bg-emerald-200">
                 {passwordArray.map((item, index) => {
                   return (
                     <tr key={index}>
