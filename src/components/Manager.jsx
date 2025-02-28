@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
+// react tostify vneko kei click grda or error ma pop-up ayuxa tyo ho
 import { ToastContainer, toast } from "react-toastify";
+// for unique id
+import { v4 as uuidv4 } from 'uuid';
+
 
 const Manager = () => {
   const ref = useRef();
@@ -46,11 +50,25 @@ const Manager = () => {
   };
 
   const savePassword = () => {
-    setPasswordArray([...passwordArray, form]);
-    localStorage.setItem("passwords", JSON.stringify([...passwordArray, form]));
+    setPasswordArray([...passwordArray, {...form, id: uuidv4()}]);
+    localStorage.setItem("passwords", JSON.stringify([...passwordArray, {...form, id: uuidv4()}]));
     console.log([...passwordArray, form]);
     // console.log(passwordArray);
     // state change huna time lagxa so yesari print grda result ayudena
+  };
+
+  const deletePassword = (id) => {
+    console.log("deleting the pass")
+    // setPasswordArray([...passwordArray, {...form, id: uuidv4()}]);
+    // localStorage.setItem("passwords", JSON.stringify([...passwordArray, form]));
+    // console.log([...passwordArray, form]);
+  };
+
+  const editPassword = (id) => {
+    console.log("editing the pass")
+    // setPasswordArray([...passwordArray, {...form, id: uuidv4()}]);
+    // localStorage.setItem("passwords", JSON.stringify([...passwordArray, form]));
+    // console.log([...passwordArray, form]);
   };
 
   const handleChange = (e) => {
@@ -134,7 +152,7 @@ const Manager = () => {
               src="https://cdn.lordicon.com/jgnvfzqg.json"
               trigger="hover"
             ></lord-icon>
-            Add Password
+            Save
           </button>
         </div>
         <div className="passwords">
@@ -148,6 +166,7 @@ const Manager = () => {
                   <th className="py-2">Site</th>
                   <th className="py-2">Username</th>
                   <th className="py-2">Password</th>
+                  <th className="py-2">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-emerald-200">
@@ -166,18 +185,19 @@ const Manager = () => {
                             }}
                           >
                             <lord-icon
-                              src="https://cdn.lordicon.com/depeqmsz.json"
-                              trigger="hover"
                               style={{
                                 width: "25px",
                                 height: "25px",
                                 paddingTop: "3px",
                                 paddingLeft: "3px",
                               }}
+                              src="https://cdn.lordicon.com/iykgtsbt.json"
+                              trigger="hover"
                             ></lord-icon>
                           </div>
                         </div>
                       </td>
+
                       <td className="py-2 border border-white text-center">
                         <div className="flex items-center justify-center">
                           <span>{item.username}</span>
@@ -188,18 +208,19 @@ const Manager = () => {
                             }}
                           >
                             <lord-icon
-                              src="https://cdn.lordicon.com/depeqmsz.json"
-                              trigger="hover"
                               style={{
                                 width: "25px",
                                 height: "25px",
                                 paddingTop: "3px",
                                 paddingLeft: "3px",
                               }}
+                              src="https://cdn.lordicon.com/iykgtsbt.json"
+                              trigger="hover"
                             ></lord-icon>
                           </div>
                         </div>
                       </td>
+
                       <td className="py-2 border border-white text-center">
                         <div className="flex items-center justify-center">
                           <span>{item.password}</span>
@@ -210,17 +231,35 @@ const Manager = () => {
                             }}
                           >
                             <lord-icon
-                              src="https://cdn.lordicon.com/depeqmsz.json"
-                              trigger="hover"
                               style={{
                                 width: "25px",
                                 height: "25px",
                                 paddingTop: "3px",
                                 paddingLeft: "3px",
                               }}
+                              src="https://cdn.lordicon.com/iykgtsbt.json"
+                              trigger="hover"
                             ></lord-icon>
                           </div>
                         </div>
+                      </td>
+
+                      <td className="justify-center py-2 border border-white text-center">
+                        <span className="cursor-pointer mx-1" onClick={()=>editPassword(item.id)}>
+                          <lord-icon
+                            src="https://cdn.lordicon.com/gwlusjdu.json"
+                            trigger="hover"
+                            style={{ width: "25px", height: "25px" }}
+                          ></lord-icon>
+                        </span>
+
+                        <span className="cursor-pointer mx-1" onClick={()=>deletePassword(item.id)}>
+                          <lord-icon
+                            src="https://cdn.lordicon.com/skkahier.json"
+                            trigger="hover"
+                            style={{ width: "25px", height: "25px" }}
+                          ></lord-icon>
+                        </span>
                       </td>
                     </tr>
                   );

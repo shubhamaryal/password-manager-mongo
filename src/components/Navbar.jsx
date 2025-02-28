@@ -22,7 +22,7 @@ const Navbar = () => {
             </a>
           </li>
         </ul> */}
-        <button className="text-white bg-emerald-600 my-5 mx-2 rounded-full flex justify-between items-center">
+        <button className="text-white bg-emerald-600 my-5 mx-2 rounded-full flex justify-between items-center ring-1 ring-white">
           <img
             className="brightness-0 invert p-1 w-10"
             // we needed the png white, so we made the png black by making it's brightness 0 and inverted it
