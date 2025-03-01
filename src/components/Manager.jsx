@@ -30,7 +30,7 @@ const Manager = () => {
       progress: undefined,
       theme: "light",
     });
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text); // this is used to copy in clipboard
   };
 
   const showPassword = () => {
