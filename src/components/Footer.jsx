@@ -9,7 +9,7 @@ const Footer = () => {
           <span>Pass</span>
           <span className="text-emerald-500">OP/&gt;</span>
         </div>
-        <div className="flex mb-2">Created by Shubham.</div>
+        <div className="flex mb-2">Created by Shubham</div>
       </div>
     </>
   );
