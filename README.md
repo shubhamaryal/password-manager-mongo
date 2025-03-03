@@ -1,6 +1,6 @@
-# Password Manager - React & Tailwind CSS
+# Password Manager - MERN
 
-A simple and secure password manager built with React and Tailwind CSS, storing data locally in the browser's localStorage.
+A simple and secure password manager built with MERN.
 
 ## Features
 
@@ -10,4 +10,3 @@ A simple and secure password manager built with React and Tailwind CSS, storing 
 - 🗑️ Delete credentials
 - 📦 Local storage for data persistence
 - 🎨 Responsive design with Tailwind CSS
-
