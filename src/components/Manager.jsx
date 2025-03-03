@@ -48,25 +48,42 @@ const Manager = () => {
   };
 
   const savePassword = () => {
-    setPasswordArray([...passwordArray, { ...form, id: uuidv4() }]);
-    localStorage.setItem(
-      "passwords",
-      JSON.stringify([...passwordArray, { ...form, id: uuidv4() }])
-    );
-    console.log([...passwordArray, form]);
-    // console.log(passwordArray);
-    // state change huna time lagxa so yesari print grda result ayudena
-    setForm({ site: "", username: "", password: "" });
-    toast("Password Saved!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    if (
+      form.site.length > 3 &&
+      form.site.username > 3 &&
+      form.password.site.password > 3
+    ) {
+      setPasswordArray([...passwordArray, { ...form, id: uuidv4() }]);
+      localStorage.setItem(
+        "passwords",
+        JSON.stringify([...passwordArray, { ...form, id: uuidv4() }])
+      );
+      console.log([...passwordArray, form]);
+      // console.log(passwordArray);
+      // state change huna time lagxa so yesari print grda result ayudena
+      setForm({ site: "", username: "", password: "" });
+      toast("Password Saved!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } else {
+      toast("Error: Password Not Saved!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
 
   const deletePassword = (id) => {
@@ -115,7 +132,7 @@ const Manager = () => {
         pauseOnHover
         theme="light"
       />
-      <div className="p-2 md:p-0 md:mycontainer">
+      <div className="p-2 md:p-0 mycontainer min-h-[88.2vh]">
         <h1 className="text-4xl font-bold text-center">
           <span className="text-emerald-500">&lt;</span>
           <span>Pass</span>
@@ -135,7 +152,7 @@ const Manager = () => {
             name="site"
             id="site"
           />
-          <div className="flex md:flex-row w-full justify-between gap-8">
+          <div className="flex flex-col md:flex-row w-full justify-between gap-8">
             <input
               value={form.username}
               onChange={handleChange}
@@ -185,7 +202,7 @@ const Manager = () => {
           <h2 className="text-2xl py-4 font-bold">Your Passwords</h2>
           {passwordArray.length === 0 && <div>No passwords to show</div>}
           {passwordArray.length !== 0 && (
-            <table className="table-auto w-full rounded-md overflow-hidden">
+            <table className="table-auto w-full rounded-md overflow-hidden mb-10">
               {/* table ma rounded garna yetikai mildaina, overflow hidden use grna prxa */}
               <thead className="bg-emerald-800 text-white">
                 <tr>
