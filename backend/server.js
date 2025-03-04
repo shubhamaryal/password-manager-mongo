@@ -21,7 +21,7 @@ const dbName = "pass-manager";
 
 const app = express();
 const port = 3000;
-app.use(bodyparser.json);
+app.use(bodyparser.json());
 
 client.connect();
 
