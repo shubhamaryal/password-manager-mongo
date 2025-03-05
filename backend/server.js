@@ -14,7 +14,7 @@ dotenv.config();
 // console.log(process.env.MONGO_URI)
 
 // Connection URL
-const url = "mongodb://localhost:27017";
+const url = process.env.MONGO_URI;
 const client = new MongoClient(url);
 
 // Database Name
@@ -23,7 +23,7 @@ const dbName = "pass-manager";
 const app = express();
 const port = 3000;
 app.use(bodyparser.json());
-app.use(cors);
+app.use(cors());
 
 client.connect();
 
