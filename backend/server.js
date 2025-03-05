@@ -1,6 +1,7 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
 const bodyparser = require("body-parser");
+const cors = require("cors");
 
 // // we can use dotenv and make a .env file after using this line
 // require('dotenv').config()
@@ -22,6 +23,7 @@ const dbName = "pass-manager";
 const app = express();
 const port = 3000;
 app.use(bodyparser.json());
+app.use(cors);
 
 client.connect();
 
@@ -51,10 +53,9 @@ app.delete("/", async (req, res) => {
   res.send({ success: true, result: findResult });
 });
 
-// in get req, we can see all the passwords from the DB 
+// in get req, we can see all the passwords from the DB
 // in post req, we can same the password in the DB
 // in delete req, we can delete the password in the DB
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
